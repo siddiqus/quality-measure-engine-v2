@@ -156,7 +156,6 @@ module QME
 	        get_db().command({:getLastError => 1}) # make sure last insert finished before we continue
 				end
 
- 
         result
       end
 
