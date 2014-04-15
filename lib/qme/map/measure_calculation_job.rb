@@ -27,8 +27,7 @@ module QME
 
         qr = QualityReport.new(@measure_id, @sub_id, @options)
         fqr = QualityReport.new(@measure_id, @sub_id, full_options)
-#        fqr = QualityReport.new(@measure_id, @sub_id, @options)
-        
+
         if qr.calculated?
           completed("#{@measure_id}#{@sub_id} has already been calculated")
         else

@@ -20,7 +20,7 @@ module QME
         @measure_id = measure_id
         @sub_id = sub_id
         @parameter_values = parameter_values
-        @measure_def = QualityMeasure.new(@measure_id, @sub_id).definition
+        @measure_def = QualityMeasure.new(@measure_id, @sub_id, parameter_values['bundle_id']).definition
         determine_connection_information()
       end
 
@@ -151,7 +151,6 @@ module QME
 				if main_filters != 0
 			  	result.merge!({ :full_numer => full_numer, :full_denom => full_denom })
 					result[:filters] = main_filters
-#					get_db()[:query_cache].save(result, safe: true)
 	        get_db()["query_cache"].insert(result)
 	        get_db().command({:getLastError => 1}) # make sure last insert finished before we continue
 				end
