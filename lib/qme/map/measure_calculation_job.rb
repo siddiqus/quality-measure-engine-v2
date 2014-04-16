@@ -23,8 +23,8 @@ module QME
       
       def perform	
 				full_options = @options.deep_dup
-				full_options['filters']['providers'] = get_db()[:providers].find.distinct("_id").map {|x| x.to_s}	 
-
+#				full_options['filters']['providers'] = get_db()[:providers].find.distinct("_id").map {|x| x.to_s}	 
+        full_options.merge!( 'filters' => { 'providers' => []} ) 
         qr = QualityReport.new(@measure_id, @sub_id, @options)
         fqr = QualityReport.new(@measure_id, @sub_id, full_options)
 
