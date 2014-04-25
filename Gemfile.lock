@@ -81,8 +81,8 @@ GEM
       slop (~> 3.4)
     pry-nav (0.2.3)
       pry (~> 0.9.10)
-    pry-rescue (1.4.0)
-      interception (>= 0.4)
+    pry-rescue (1.4.1)
+      interception (>= 0.5)
       pry
     pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)

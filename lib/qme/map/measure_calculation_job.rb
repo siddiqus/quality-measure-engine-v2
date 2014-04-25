@@ -25,9 +25,12 @@ module QME
 				full_options = Marshal.load(Marshal.dump(@options))
         provider_list = get_db()['providers'].find.distinct("_id").map {|x| x.to_s}	 
         
-        if( full_options['filters'] )
-          full_options['filters'].delete('providers') # => provider_list)
-        end
+        full_options.merge!( 'filters' => {'providers' => provider_list} ) unless !(full_options)
+        
+#        if( full_options['filters'] )
+##          full_options['filters'].delete('providers') # => provider_list)
+##          full_options['fitlers'].merge!('providers' => provider_list)
+#        end
         
         qr = QualityReport.new(@measure_id, @sub_id, @options)
         fqr = QualityReport.new(@measure_id, @sub_id, full_options)
